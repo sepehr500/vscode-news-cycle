@@ -4,6 +4,9 @@
   "displayName": "News Cycle",
   "description": "View news alerts in your toolbar",
   "version": "0.0.1",
+  "repository": {
+    "url": "https://github.com/sepehr500/vscode-news-cycle"
+  },
   "engines": {
     "vscode": "^1.31.0"
   },
