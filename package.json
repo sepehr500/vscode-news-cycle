@@ -1,0 +1,75 @@
+{
+  "name": "news-cycle",
+  "publisher": "sepehr500",
+  "displayName": "News Cycle",
+  "description": "View news alerts in your toolbar",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.31.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "icon.png",
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": [
+      {
+        "title": "News configuration",
+        "properties": {
+          "newsCycle.headlineLength": {
+            "type": "integer",
+            "description": "Set the length of the headline",
+            "default": 50
+          },
+          "newsCycle.newsSource": {
+            "type": "string",
+            "description": "Select news source",
+            "default": "HackerNews",
+            "enum": [
+              "HackerNews",
+              "CNN",
+              "Reddit"
+            ]
+          },
+          "newsCycle.subreddit": {
+            "type": "string",
+            "description": "Select subreddit if reddit",
+            "default": "news"
+          },
+          "newsCycle.scrollSpeed": {
+            "type": "integer",
+            "description": "Pick scroll speed in seconds",
+            "default": 5
+          },
+          "newsCycle.headlineCount": {
+            "type": "integer",
+            "description": "Number of headlines to cycle through",
+            "default": 5
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^3.3.1",
+    "vscode": "^1.1.28",
+    "tslint": "^5.12.1",
+    "@types/node": "^10.12.21",
+    "@types/mocha": "^2.2.42"
+  },
+  "dependencies": {
+    "rss-parser": "^3.6.2",
+    "xml2js": "^0.4.19"
+  }
+}
